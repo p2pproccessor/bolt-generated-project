@@ -1,361 +1,385 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NextLevel Muhasebe | Stratejik Finansal Ortaklar</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
+ <!DOCTYPE html>
+ <html lang="tr">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NextLevel Muhasebe | Stratejik Finansal Ortaklar</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+  * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+  }
 
-        body {
-            background-color: #0a0a0a;
-            color: #ffffff;
-            line-height: 1.6;
-        }
+  body {
+  background-color: #0a0a0a;
+  color: #ffffff;
+  line-height: 1.6;
+  }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
+  .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  }
 
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background-color: transparent;
-            padding: 1rem;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+  nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: transparent;
+  padding: 1rem;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  }
 
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            margin-left: 0; /* Sola yaslamak için */
-        }
+  nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin-left: auto; /* Sola yaslamak için */
+  }
 
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.1rem;
-        }
+  nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  }
 
-        nav a:hover {
-            color: #888;
-        }
+  nav a:hover {
+  color: #888;
+  }
 
-        .hamburger-menu {
-            display: none;
-            cursor: pointer;
-            background: none;
-            border: none;
-            color: #fff;
-            font-size: 1.5rem;
-        }
+  .hamburger-menu {
+  display: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  }
 
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background-color: rgba(10, 10, 10, 0.9);
-            z-index: 1001;
-            transform: translateX(100vw);
-            transition: transform 0.3s ease-in-out;
-        }
+  .mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(10, 10, 10, 0.9);
+  z-index: 1001;
+  transform: translateX(100vw);
+  transition: transform 0.3s ease-in-out;
+  }
 
-        .mobile-menu.active {
-            display: block;
-            transform: translateX(0);
-        }
+  .mobile-menu.active {
+  display: block;
+  transform: translateX(0);
+  }
 
-        .mobile-menu ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-        }
+  .mobile-menu ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  }
 
-        .mobile-menu li {
-            margin: 1rem 0;
-        }
+  .mobile-menu li {
+  margin: 1rem 0;
+  }
 
-        .mobile-menu a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.2rem;
-            text-align: center;
-        }
+  .mobile-menu a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  text-align: center;
+  }
 
-        .mobile-menu a:hover {
-            color: #888;
-        }
+  .mobile-menu a:hover {
+  color: #888;
+  }
 
-        .close-button {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            color: #fff;
-            font-size: 2rem;
-            cursor: pointer;
-        }
+  .close-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  }
 
-        @media (max-width: 768px) {
-            nav ul {
-                display: none;
-            }
-            .hamburger-menu {
-                display: block;
-                margin-left: auto; /* Sağa yaslamak için */
-            }
-        }
-        section {
-            min-height: 100vh;
-            padding: 4rem 0;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            position: relative;
-            overflow: hidden;
-        }
+  @media (max-width: 768px) {
+  nav ul {
+  display: none;
+  }
+  .hamburger-menu {
+  display: block;
+  margin-left: auto; /* Sağa yaslamak için */
+  }
+  }
+  section {
+  min-height: 100vh;
+  padding: 4rem 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+  opacity: 0; /* Başlangıçta görünmez yap */
+  transition: opacity 0.5s ease-in-out; /* Geçiş efekti ekle */
+  background-attachment: fixed; /* Paralaks efekti için */
+  }
 
-        section::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.4);
-        }
+  section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  }
 
-        .section-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            color: #ffffff;
-            padding: 2rem 1rem;
-        }
+  .section-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  color: #ffffff;
+  padding: 2rem 1rem;
+  }
 
-        h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            color: #ffffff;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
+  h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-family: 'Open Sans', sans-serif; /* Başlık fontu */
+  font-weight: bold; /* Kalın başlık */
+  }
 
-        p {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            color: #cccccc;
-            line-height: 1.6;
-        }
+  p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #cccccc;
+  line-height: 1.6;
+  }
 
-        .button {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background-color: #333;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 4px;
-            margin-top: 2rem;
-            font-size: 1.1rem;
-        }
+  .button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  margin-top: 2rem;
+  font-size: 1.1rem;
+  }
 
-        .button:hover {
-            background-color: #444;
-        }
+  .button:hover {
+  background-color: #444;
+  }
 
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
-        }
+  .services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 4rem;
+  }
 
-        .service-card {
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            border-radius: 8px;
-            transition: transform 0.3s ease;
-        }
+  .service-card {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  }
 
-        .service-card:hover {
-            transform: translateY(-5px);
-        }
+  .service-card:hover {
+  transform: translateY(-5px);
+  }
 
-        .service-card i {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: #888;
-        }
+  .service-card i {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #888;
+  }
 
-        .contact-content {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: center;
-            color: #ffffff;
-            font-size: 1.2rem;
-        }
+  .contact-content {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  color: #ffffff;
+  font-size: 1.2rem;
+  }
 
-        .contact-content h2 {
-            margin-bottom: 1.5rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
+  .contact-content h2 {
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
 
-        .contact-content p {
-            color: #ffffff;
-            margin-bottom: 1rem;
-            line-height: 1.6;
-        }
+  .contact-content p {
+  color: #ffffff;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  }
 
-        .contact-content a {
-            color: #ffffff;
-            text-decoration: none;
-        }
+  .contact-content a {
+  color: #ffffff;
+  text-decoration: none;
+  }
 
-        .contact-content a:hover {
-            text-decoration: underline;
-        }
-    </style>
-</head>
-<body>
-    <nav>
-        <ul>
-            <li><a href="#home">Anasayfa</a></li>
-            <li><a href="#services">Hizmetler</a></li>
-            <li><a href="#expertise">Uzmanlık</a></li>
-            <li><a href="#contact">İletişim</a></li>
-        </ul>
-        <button class="hamburger-menu">
-            <i class="fas fa-bars"></i>
-        </button>
-    </nav>
+  .contact-content a:hover {
+  text-decoration: underline;
+  }
 
-    <div class="mobile-menu">
-        <span class="close-button">&times;</span>
-        <ul>
-            <li><a href="#home">Anasayfa</a></li>
-            <li><a href="#services">Hizmetler</a></li>
-            <li><a href="#expertise">Uzmanlık</a></li>
-            <li><a href="#contact">İletişim</a></li>
-        </ul>
-    </div>
+  section.visible {
+  opacity: 1; /* Görünür yap */
+  }
+  </style>
+ </head>
+ <body>
+  <nav>
+  <ul>
+  <li><a href="#home">Anasayfa</a></li>
+  <li><a href="#services">Hizmetler</a></li>
+  <li><a href="#expertise">Uzmanlık</a></li>
+  <li><a href="#contact">İletişim</a></li>
+  </ul>
+  <button class="hamburger-menu">
+  <i class="fas fa-bars"></i>
+  </button>
+  </nav>
 
-    <section id="home" style="background-image: url('https://images.unsplash.com/photo-1554224154-26032ffc0d07')">
-        <div class="section-content">
-            <h1>Rakamların Hikayeler Anlattığı Yer</h1>
-            <p>Hırslı işletmeler için stratejik finansal çözümler</p>
-            <p>Yaratıcı problem çözme ile hassasiyeti birleştirme</p>
-            <a href="#services" class="button">Hizmetlerimizi Keşfedin</a>
-        </div>
-    </section>
+  <div class="mobile-menu">
+  <span class="close-button">&times;</span>
+  <ul>
+  <li><a href="#home">Anasayfa</a></li>
+  <li><a href="#services">Hizmetler</a></li>
+  <li><a href="#expertise">Uzmanlık</a></li>
+  <li><a href="#contact">İletişim</a></li>
+  </ul>
+  </div>
 
-    <section id="services" style="background-image: url('https://images.unsplash.com/photo-1685038955804-3de172e7ff35')">
-        <div class="section-content">
-            <h2>Hizmetlerimiz</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <i class="fas fa-chart-line"></i>
-                    <h3>Finansal Planlama</h3>
-                    <p>İşletme büyümesini sağlayan stratejik planlama</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-calculator"></i>
-                    <h3>Vergi Stratejisi</h3>
-                    <p>Finansal pozisyonunuzu optimize etme</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Risk Yönetimi</h3>
-                    <p>Varlıklarınızı koruma</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <section id="home" style="background-image: url('https://images.unsplash.com/photo-1554224154-26032ffc0d07')">
+  <div class="section-content">
+  <h1>Rakamların Hikayeler Anlattığı Yer</h1>
+  <p>Hırslı işletmeler için stratejik finansal çözümler</p>
+  <p>Yaratıcı problem çözme ile hassasiyeti birleştirme</p>
+  <a href="#services" class="button">Hizmetlerimizi Keşfedin</a>
+  </div>
+  </section>
 
-    <section id="expertise" style="background-image: url('https://images.unsplash.com/photo-1530971013997-e06bb52a2372')">
-        <div class="section-content">
-            <h2>Uzmanlık Alanlarımız</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>Kurumsal Finansman</h3>
-                    <p>İşletmeler için kapsamlı finansal çözümler</p>
-                    <p>15+ yıllık deneyim</p>
-                </div>
-                <div class="service-card">
-                    <h3>Kâr Amacı Gütmeyen Kuruluşlar için Muhasebe</h3>
-                    <p>Kâr amacı gütmeyen kuruluşlar için özel hizmetler</p>
-                    <p>%95 müşteri tutma oranı</p>
-                </div>
-                <div class="service-card">
-                    <h3>Uluslararası Vergilendirme</h3>
-                    <p>Küresel vergi stratejileri</p>
-                    <p>20+ ülkeyi kapsayan</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <section id="services" style="background-image: url('https://images.unsplash.com/photo-1685038955804-3de172e7ff35')">
+  <div class="section-content">
+  <h2>Hizmetlerimiz</h2>
+  <div class="services-grid">
+  <div class="service-card">
+  <i class="fas fa-chart-line"></i>
+  <h3>Finansal Planlama</h3>
+  <p>İşletme büyümesini sağlayan stratejik planlama</p>
+  </div>
+  <div class="service-card">
+  <i class="fas fa-calculator"></i>
+  <h3>Vergi Stratejisi</h3>
+  <p>Finansal pozisyonunuzu optimize etme</p>
+  </div>
+  <div class="service-card">
+  <i class="fas fa-shield-alt"></i>
+  <h3>Risk Yönetimi</h3>
+  <p>Varlıklarınızı koruma</p>
+  </div>
+  </div>
+  </div>
+  </section>
 
-    <section id="contact" style="background-image: url('https://images.unsplash.com/photo-1444653614773-995cb1ef9efa')">
-        <div class="section-content">
-            <h2>Finansal Geleceğinizi Şekillendirelim</h2>
-            <p>İşletmenizi dönüştürmeye hazır mısınız?</p>
-            <a href="mailto:hello@nextlevelaccounting.com" class="button">İletişime Geçin</a>
-            <p>Veya bir danışmanlık randevusu ayarlayın:</p>
-            <div class="contact-content">
-                <p>📞 (555) 123 İşletme Caddesi, Finans Bölgesi</p>
-            </div>
-        </div>
-    </section>
+  <section id="expertise" style="background-image: url('https://images.unsplash.com/photo-1530971013997-e06bb52a2372')">
+  <div class="section-content">
+  <h2>Uzmanlık Alanlarımız</h2>
+  <div class="services-grid">
+  <div class="service-card">
+  <h3>Kurumsal Finansman</h3>
+  <p>İşletmeler için kapsamlı finansal çözümler</p>
+  <p>15+ yıllık deneyim</p>
+  </div>
+  <div class="service-card">
+  <h3>Kâr Amacı Gütmeyen Kuruluşlar için Muhasebe</h3>
+  <p>Kâr amacı gütmeyen kuruluşlar için özel hizmetler</p>
+  <p>%95 müşteri tutma oranı</p>
+  </div>
+  <div class="service-card">
+  <h3>Uluslararası Vergilendirme</h3>
+  <p>Küresel vergi stratejileri</p>
+  <p>20+ ülkeyi kapsayan</p>
+  </div>
+  </div>
+  </div>
+  </section>
 
-    <script>
-        // Tüm bağlantılara yumuşak kaydırma ekle
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+  <section id="contact" style="background-image: url('https://images.unsplash.com/photo-1444653614773-995cb1ef9efa')">
+  <div class="section-content">
+  <h2>Finansal Geleceğinizi Şekillendirelim</h2>
+  <p>İşletmenizi dönüştürmeye hazır mısınız?</p>
+  <a href="mailto:hello@nextlevelaccounting.com" class="button">İletişime Geçin</a>
+  <p>Veya bir danışmanlık randevusu ayarlayın:</p>
+  <div class="contact-content">
+  <p>📞 (555) 123 İşletme Caddesi, Finans Bölgesi</p>
+  </div>
+  </div>
+  </section>
 
-        // Hamburger menü işlevselliği
-        const hamburger = document.querySelector('.hamburger-menu');
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const closeButton = document.querySelector('.close-button');
+  <script>
+  // Tüm bağlantılara yumuşak kaydırma ekle
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+  e.preventDefault();
+  document.querySelector(this.getAttribute('href')).scrollIntoView({
+  behavior: 'smooth'
+  });
+  });
+  });
 
-        hamburger.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
-        });
+  // Hamburger menü işlevselliği
+  const hamburger = document.querySelector('.hamburger-menu');
+  const mobileMenu = document.querySelector('.mobile-menu');
+  const closeButton = document.querySelector('.close-button');
 
-        closeButton.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-        });
+  hamburger.addEventListener('click', () => {
+  mobileMenu.classList.toggle('active');
+  });
 
-        // Bir bağlantıya tıklanınca mobil menüyü kapat
-        document.querySelectorAll('.mobile-menu a').forEach(item => {
-            item.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-            });
-        });
-    </script>
-</body>
-</html>
+  closeButton.addEventListener('click', () => {
+  mobileMenu.classList.remove('active');
+  });
+
+  // Bir bağlantıya tıklanınca mobil menüyü kapat
+  document.querySelectorAll('.mobile-menu a').forEach(item => {
+  item.addEventListener('click', () => {
+  mobileMenu.classList.remove('active');
+  });
+  });
+
+  // Bölümlerin görünürlüğünü takip et
+  const sections = document.querySelectorAll('section');
+
+  const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+  if (entry.isIntersecting) {
+  entry.target.classList.add('visible');
+  }
+  });
+  });
+
+  sections.forEach(section => {
+  observer.observe(section);
+  });
+  </script>
+ </body>
+ </html>
