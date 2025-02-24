@@ -19,12 +19,6 @@
   line-height: 1.6;
   }
 
-  .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
-  }
-
   nav {
   position: fixed;
   top: 0;
@@ -41,7 +35,7 @@
   display: flex;
   list-style: none;
   gap: 2rem;
-  margin-left: auto; /* Sola yaslamak için */
+  margin-left: auto;
   }
 
   nav a {
@@ -121,9 +115,10 @@
   }
   .hamburger-menu {
   display: block;
-  margin-left: auto; /* Sağa yaslamak için */
+  margin-left: auto;
   }
   }
+
   section {
   min-height: 100vh;
   padding: 4rem 0;
@@ -132,9 +127,6 @@
   background-repeat: no-repeat;
   position: relative;
   overflow: hidden;
-  opacity: 0; /* Başlangıçta görünmez yap */
-  transition: opacity 0.5s ease-in-out; /* Geçiş efekti ekle */
-  background-attachment: fixed; /* Paralaks efekti için */
   }
 
   section::after {
@@ -162,8 +154,6 @@
   margin-bottom: 1rem;
   color: #ffffff;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  font-family: 'Open Sans', sans-serif; /* Başlık fontu */
-  font-weight: bold; /* Kalın başlık */
   }
 
   p {
@@ -238,10 +228,6 @@
 
   .contact-content a:hover {
   text-decoration: underline;
-  }
-
-  section.visible {
-  opacity: 1; /* Görünür yap */
   }
   </style>
  </head>
@@ -364,21 +350,6 @@
   item.addEventListener('click', () => {
   mobileMenu.classList.remove('active');
   });
-  });
-
-  // Bölümlerin görünürlüğünü takip et
-  const sections = document.querySelectorAll('section');
-
-  const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-  if (entry.isIntersecting) {
-  entry.target.classList.add('visible');
-  }
-  });
-  });
-
-  sections.forEach(section => {
-  observer.observe(section);
   });
   </script>
  </body>
